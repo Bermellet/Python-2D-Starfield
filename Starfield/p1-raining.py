@@ -16,11 +16,11 @@ def init(stars):
 def update(stars):
 	for star in stars:
 		# TODO: update star y value emulating falling down behaviour
-		star[1] = ...
+		star[1] = star[1] + STAR_SPEED
 		if star[1] >= HEIGHT:
 			# TODO: initialise star y value to position zero
-			
 			star[0] = randrange(0, WIDTH)
+			star[1] = 0
 
 def draw(screen,stars):
 	color = (0, 0, 255)
@@ -53,7 +53,7 @@ def main():
 		# Render
 		screen.fill((255, 255, 255))
 		# TODO: draw stars method
-		
+		draw(screen, stars)
 		pygame.display.flip()
 		
 		clock.tick(50)

@@ -5,9 +5,9 @@ from random import randrange
 def main():
 	pygame.init()
 	# TODO 1: initialise a window for display, set the argument size (width, height)
-	screen = pygame.display.set_mode((  ,  ))
+	screen = pygame.display.set_mode((600,400))
 	# TODO 2: set the window caption
-	pygame.display.set_caption(" ... ")
+	pygame.display.set_caption("Game window")
 	clock = pygame.time.Clock()
  
 	# Init
@@ -29,13 +29,13 @@ def main():
 		# Render
 		# TODO 3: fill the screen with a random rgb color
 		r = randrange(0,255)
-		g =
-		b =
-		screen.fill((r, , ))
+		g = randrange(0,255)
+		b = randrange(0,255)
+		screen.fill((r, g, b))
 		
 		pygame.display.flip()
 		
-		clock.tick(1)
+		clock.tick(3)
  
 if __name__ == "__main__":
 	main()

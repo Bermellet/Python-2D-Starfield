@@ -12,7 +12,8 @@ DIST = 50
 def project(x, y, z, win_width, win_height, fov, viewer_distance):
 	factor = fov / (viewer_distance + z)
 	# TODO: compute x2d, y2d from given parameters
-	
+	x2d = win_width/2 + factor * x
+	y2d = win_height/2 + factor * y
 	
 	return x2d, y2d
 
@@ -65,7 +66,7 @@ def init(stars):
 def update(stars):
 	for star in stars:
 		# TODO: decrease z-value
-		
+		star[2] = star[2] - STAR_SPEED
 		if star[2] < 1:
 			init_star(star)
 
@@ -73,7 +74,8 @@ def draw(screen, stars, fov, viewer_distance):
 	color = (0, 0, 255)
 	for star in stars:
 		# TODO: project 3d star into 2d plane
-		x, y = 
+		(width, height) = screen.get_size()
+		x, y = project(star[0], star[1], star[2], width, height, fov, viewer_distance)
 		size = 5
 		r = (int(x), int(y), size, size)
 		pygame.draw.rect(screen, color, r)
